@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SoleCraft - Premium footwear for every stride. Discover our curated collection of running, lifestyle, basketball, and casual shoes.">
+    <meta name="keywords" content="shoes, sneakers, footwear, running shoes, basketball shoes, premium shoes, shoe store">
+    <title>SoleCraft | Premium Footwear for Every Stride</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="loader-content">
+            <div class="loader-logo">SOLE<span>CRAFT</span></div>
+            <div class="loader-bar"><div class="loader-progress"></div></div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="navbar" class="navbar">
+        <div class="nav-container">
+            <a href="#home" class="nav-logo" id="nav-logo">
+                <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+                    <path d="M18 2L34 10V26L18 34L2 26V10L18 2Z" stroke="url(#logoGrad)" stroke-width="2" fill="none"/>
+                    <path d="M8 18C8 18 12 12 18 12C24 12 28 18 28 18C28 18 24 24 18 24C12 24 8 18 8 18Z" fill="url(#logoGrad)"/>
+                    <defs>
+                        <linearGradient id="logoGrad" x1="2" y1="2" x2="34" y2="34">
+                            <stop offset="0%" stop-color="#f59e0b"/>
+                            <stop offset="100%" stop-color="#ef4444"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+                SOLE<span>CRAFT</span>
+            </a>
+            <div class="nav-links" id="nav-links">
+                <a href="#home" class="nav-link active" data-section="home">Home</a>
+                <a href="#products" class="nav-link" data-section="products">Collection</a>
+                <a href="#about" class="nav-link" data-section="about">About</a>
+                <a href="#testimonials" class="nav-link" data-section="testimonials">Reviews</a>
+                <a href="#contact" class="nav-link" data-section="contact">Contact</a>
+            </div>
+            <div class="nav-actions">
+                <button class="nav-search-btn" id="search-toggle" aria-label="Search">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+                    </svg>
+                </button>
+                <button class="nav-cart-btn" id="cart-toggle" aria-label="Cart">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 01-8 0"/>
+                    </svg>
+                    <span class="cart-count" id="cart-count">0</span>
+                </button>
+                <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+        <!-- Search overlay -->
+        <div class="search-overlay" id="search-overlay">
+            <div class="search-bar">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+                </svg>
+                <input type="text" id="search-input" placeholder="Search for shoes..." autocomplete="off">
+                <button class="search-close" id="search-close">&times;</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-bg-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+        </div>
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">🔥 New Collection 2026</div>
+                <h1 class="hero-title">
+                    Step Into <br>
+                    <span class="gradient-text">Greatness</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Discover premium footwear crafted for performance, style, and comfort. 
+                    Every step tells your story.
+                </p>
+                <div class="hero-cta">
+                    <a href="#products" class="btn btn-primary" id="hero-shop-btn">
+                        Shop Collection
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                    <a href="#about" class="btn btn-ghost" id="hero-learn-btn">Learn More</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number" data-target="50">0</span><span class="stat-suffix">K+</span>
+                        <span class="stat-label">Happy Customers</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number" data-target="200">0</span><span class="stat-suffix">+</span>
+                        <span class="stat-label">Shoe Models</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number" data-target="4.9">0</span><span class="stat-suffix">★</span>
+                        <span class="stat-label">Average Rating</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="hero-shoe-container">
+                    <div class="hero-glow"></div>
+                    <img src="/images/shoe-runner-white.png" alt="Featured Shoe" class="hero-shoe" id="hero-shoe">
+                    <div class="hero-floating-card card-price">
+                        <span class="fc-label">Starting at</span>
+                        <span class="fc-value">$129.99</span>
+                    </div>
+                    <div class="hero-floating-card card-rating">
+                        <span class="fc-stars">★★★★★</span>
+                        <span class="fc-label">4.9 Rating</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-scroll-indicator">
+            <div class="scroll-line"></div>
+            <span>Scroll to explore</span>
+        </div>
+    </section>
+
+    <!-- Brands Marquee -->
+    <section class="brands-section">
+        <div class="marquee">
+            <div class="marquee-content">
+                <span class="brand-item">PERFORMANCE</span>
+                <span class="brand-dot">◆</span>
+                <span class="brand-item">STYLE</span>
+                <span class="brand-dot">◆</span>
+                <span class="brand-item">COMFORT</span>
+                <span class="brand-dot">◆</span>
+                <span class="brand-item">INNOVATION</span>
+                <span class="brand-dot">◆</span>
+                <span class="brand-item">DURABILITY</span>
+                <span class="brand-dot">◆</span>
+                <span class="brand-item">PERFORMANCE</span>
+                <span class="brand-dot">◆</span>
+                <span class="brand-item">STYLE</span>
+                <span class="brand-dot">◆</span>
+                <span class="brand-item">COMFORT</span>
+                <span class="brand-dot">◆</span>
+                <span class="brand-item">INNOVATION</span>
+                <span class="brand-dot">◆</span>
+                <span class="brand-item">DURABILITY</span>
+                <span class="brand-dot">◆</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="products-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Our Collection</span>
+                <h2 class="section-title">Curated <span class="gradient-text">Footwear</span></h2>
+                <p class="section-desc">Handpicked styles for every occasion, every ambition, every you.</p>
+            </div>
+            <div class="filter-bar" id="filter-bar">
+                <button class="filter-btn active" data-category="all" id="filter-all">All</button>
+                <button class="filter-btn" data-category="running" id="filter-running">Running</button>
+                <button class="filter-btn" data-category="lifestyle" id="filter-lifestyle">Lifestyle</button>
+                <button class="filter-btn" data-category="basketball" id="filter-basketball">Basketball</button>
+                <button class="filter-btn" data-category="casual" id="filter-casual">Casual</button>
+                <button class="filter-btn" data-category="outdoor" id="filter-outdoor">Outdoor</button>
+            </div>
+            <div class="products-grid" id="products-grid">
+                <!-- Products loaded dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="container">
+            <div class="features-grid">
+                <div class="feature-card" id="feature-shipping">
+                    <div class="feature-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                        </svg>
+                    </div>
+                    <h3>Free Express Shipping</h3>
+                    <p>Lightning-fast delivery on all orders over $100. Get your kicks in 2-3 business days.</p>
+                </div>
+                <div class="feature-card" id="feature-returns">
+                    <div class="feature-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M21 12a9 9 0 11-6.219-8.56"/><polyline points="22 2 22 8 16 8"/>
+                        </svg>
+                    </div>
+                    <h3>30-Day Returns</h3>
+                    <p>Not the right fit? Return hassle-free within 30 days for a full refund.</p>
+                </div>
+                <div class="feature-card" id="feature-quality">
+                    <div class="feature-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        </svg>
+                    </div>
+                    <h3>Premium Quality</h3>
+                    <p>Crafted with the finest materials for durability and unmatched comfort.</p>
+                </div>
+                <div class="feature-card" id="feature-support">
+                    <div class="feature-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
+                        </svg>
+                    </div>
+                    <h3>24/7 Support</h3>
+                    <p>Our expert team is always ready to help you find the perfect pair.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-content">
+                    <span class="section-badge">Our Story</span>
+                    <h2 class="section-title">Crafting <span class="gradient-text">Excellence</span> Since 2018</h2>
+                    <p class="about-text">
+                        At SoleCraft, we believe every step should be extraordinary. Born from a passion for 
+                        artisanal footwear and cutting-edge technology, we bridge the gap between 
+                        high-performance athletics and street-ready style.
+                    </p>
+                    <p class="about-text">
+                        Our team of designers and engineers obsess over every detail — from the curve of 
+                        the sole to the weave of the upper — to deliver shoes that aren't just worn, 
+                        but experienced.
+                    </p>
+                    <div class="about-highlights">
+                        <div class="highlight">
+                            <div class="highlight-number">100%</div>
+                            <div class="highlight-label">Sustainable Materials</div>
+                        </div>
+                        <div class="highlight">
+                            <div class="highlight-number">50+</div>
+                            <div class="highlight-label">Countries Shipped</div>
+                        </div>
+                        <div class="highlight">
+                            <div class="highlight-number">2M+</div>
+                            <div class="highlight-label">Shoes Crafted</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-visual">
+                    <div class="about-image-stack">
+                        <div class="about-img-card about-img-1">
+                            <img src="/images/shoe-hightop-black.png" alt="Shoe craftsmanship">
+                        </div>
+                        <div class="about-img-card about-img-2">
+                            <img src="/images/shoe-hiking-green.png" alt="Shoe design">
+                        </div>
+                        <div class="about-accent-circle"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Testimonials</span>
+                <h2 class="section-title">What Our <span class="gradient-text">Customers</span> Say</h2>
+            </div>
+            <div class="testimonials-carousel" id="testimonials-carousel">
+                <div class="testimonial-card" id="testimonial-1">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"The AeroStride Runners are an absolute game-changer. I've tried dozens of running shoes, and nothing comes close to the comfort and responsiveness. My marathon times have improved significantly!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar" style="background: linear-gradient(135deg, #f59e0b, #ef4444);">AR</div>
+                        <div>
+                            <div class="author-name">Alex Rodriguez</div>
+                            <div class="author-title">Marathon Runner</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card" id="testimonial-2">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"I bought the UrbanEdge High-Tops for a special event and now I can't stop wearing them. The leather quality is insane, and the gold accents get compliments everywhere I go."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar" style="background: linear-gradient(135deg, #8b5cf6, #ec4899);">SK</div>
+                        <div>
+                            <div class="author-name">Samira Khan</div>
+                            <div class="author-title">Fashion Blogger</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card" id="testimonial-3">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"The TrailForge X boots survived a 3-week Himalayan trek without any issues. Waterproof, comfortable, and incredibly grippy on wet rocks. SoleCraft has earned a customer for life."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar" style="background: linear-gradient(135deg, #10b981, #3b82f6);">JM</div>
+                        <div>
+                            <div class="author-name">James Mitchell</div>
+                            <div class="author-title">Adventure Enthusiast</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter-section">
+        <div class="container">
+            <div class="newsletter-card" id="newsletter-card">
+                <div class="newsletter-content">
+                    <h2 class="newsletter-title">Get <span class="gradient-text">15% Off</span> Your First Order</h2>
+                    <p class="newsletter-desc">Subscribe to our newsletter for exclusive drops, early access, and style inspiration.</p>
+                    <form class="newsletter-form" id="newsletter-form">
+                        <input type="email" placeholder="Enter your email address" required id="newsletter-email">
+                        <button type="submit" class="btn btn-primary" id="newsletter-submit">Subscribe</button>
+                    </form>
+                    <p class="newsletter-disclaimer">No spam. Unsubscribe anytime. We respect your privacy.</p>
+                </div>
+                <div class="newsletter-decoration">
+                    <div class="nl-circle nl-circle-1"></div>
+                    <div class="nl-circle nl-circle-2"></div>
+                    <div class="nl-circle nl-circle-3"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <span class="section-badge">Get In Touch</span>
+                    <h2 class="section-title">Let's <span class="gradient-text">Talk</span></h2>
+                    <p class="contact-desc">Have questions about sizing, orders, or just want to say hi? We'd love to hear from you.</p>
+                    <div class="contact-details">
+                        <div class="contact-item" id="contact-email-info">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
+                            </svg>
+                            <div>
+                                <span class="ci-label">Email</span>
+                                <span class="ci-value">hello@solecraft.com</span>
+                            </div>
+                        </div>
+                        <div class="contact-item" id="contact-phone-info">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
+                            </svg>
+                            <div>
+                                <span class="ci-label">Phone</span>
+                                <span class="ci-value">+1 (555) 123-4567</span>
+                            </div>
+                        </div>
+                        <div class="contact-item" id="contact-location-info">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/>
+                            </svg>
+                            <div>
+                                <span class="ci-label">Location</span>
+                                <span class="ci-value">123 Sneaker Ave, NYC</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form" id="contact-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="contact-name">Name</label>
+                            <input type="text" id="contact-name" placeholder="Your name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-email">Email</label>
+                            <input type="email" id="contact-email" placeholder="your@email.com" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-subject">Subject</label>
+                        <input type="text" id="contact-subject" placeholder="How can we help?">
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-message">Message</label>
+                        <textarea id="contact-message" rows="5" placeholder="Tell us more..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full" id="contact-submit">
+                        Send Message
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
+                        </svg>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#home" class="nav-logo">
+                        <svg width="32" height="32" viewBox="0 0 36 36" fill="none">
+                            <path d="M18 2L34 10V26L18 34L2 26V10L18 2Z" stroke="url(#footerGrad)" stroke-width="2" fill="none"/>
+                            <path d="M8 18C8 18 12 12 18 12C24 12 28 18 28 18C28 18 24 24 18 24C12 24 8 18 8 18Z" fill="url(#footerGrad)"/>
+                            <defs>
+                                <linearGradient id="footerGrad" x1="2" y1="2" x2="34" y2="34">
+                                    <stop offset="0%" stop-color="#f59e0b"/>
+                                    <stop offset="100%" stop-color="#ef4444"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                        SOLE<span>CRAFT</span>
+                    </a>
+                    <p class="footer-tagline">Premium footwear crafted for every stride. Step into greatness.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" id="social-instagram" aria-label="Instagram">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" id="social-twitter" aria-label="Twitter">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" id="social-facebook" aria-label="Facebook">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Shop</h4>
+                    <a href="#products">New Arrivals</a>
+                    <a href="#products">Best Sellers</a>
+                    <a href="#products">Running</a>
+                    <a href="#products">Lifestyle</a>
+                    <a href="#products">Basketball</a>
+                </div>
+                <div class="footer-column">
+                    <h4>Company</h4>
+                    <a href="#about">About Us</a>
+                    <a href="#contact">Careers</a>
+                    <a href="#contact">Press</a>
+                    <a href="#contact">Blog</a>
+                </div>
+                <div class="footer-column">
+                    <h4>Support</h4>
+                    <a href="#contact">Help Center</a>
+                    <a href="#contact">Shipping Info</a>
+                    <a href="#contact">Returns</a>
+                    <a href="#contact">Size Guide</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 SoleCraft. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-overlay" id="cart-overlay"></div>
+    <div class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h3>Your Cart</h3>
+            <button class="cart-close" id="cart-close" aria-label="Close cart">&times;</button>
+        </div>
+        <div class="cart-items" id="cart-items">
+            <div class="cart-empty" id="cart-empty">
+                <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                    <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 01-8 0"/>
+                </svg>
+                <p>Your cart is empty</p>
+                <a href="#products" class="btn btn-primary btn-sm" id="cart-shop-btn">Start Shopping</a>
+            </div>
+        </div>
+        <div class="cart-footer" id="cart-footer" style="display: none;">
+            <div class="cart-subtotal">
+                <span>Subtotal</span>
+                <span id="cart-subtotal">$0.00</span>
+            </div>
+            <div class="cart-shipping">
+                <span>Shipping</span>
+                <span class="free-shipping">FREE</span>
+            </div>
+            <div class="cart-total">
+                <span>Total</span>
+                <span id="cart-total">$0.00</span>
+            </div>
+            <button class="btn btn-primary btn-full" id="checkout-btn">Proceed to Checkout</button>
+        </div>
+    </div>
+
+    <!-- Product Quick View Modal -->
+    <div class="modal-overlay" id="product-modal-overlay"></div>
+    <div class="product-modal" id="product-modal">
+        <button class="modal-close" id="modal-close">&times;</button>
+        <div class="modal-grid">
+            <div class="modal-image">
+                <img id="modal-product-image" src="" alt="Product">
+            </div>
+            <div class="modal-details">
+                <span class="modal-badge" id="modal-badge"></span>
+                <h2 id="modal-product-name"></h2>
+                <div class="modal-rating">
+                    <span class="modal-stars" id="modal-stars"></span>
+                    <span class="modal-reviews" id="modal-reviews"></span>
+                </div>
+                <div class="modal-price">
+                    <span class="modal-current-price" id="modal-price"></span>
+                    <span class="modal-original-price" id="modal-original-price"></span>
+                    <span class="modal-discount" id="modal-discount"></span>
+                </div>
+                <p class="modal-description" id="modal-description"></p>
+                <div class="modal-sizes">
+                    <h4>Select Size</h4>
+                    <div class="size-options" id="modal-sizes"></div>
+                </div>
+                <div class="modal-colors">
+                    <h4>Color</h4>
+                    <div class="color-options" id="modal-colors"></div>
+                </div>
+                <div class="modal-quantity">
+                    <h4>Quantity</h4>
+                    <div class="quantity-selector">
+                        <button class="qty-btn" id="qty-minus">−</button>
+                        <span class="qty-value" id="qty-value">1</span>
+                        <button class="qty-btn" id="qty-plus">+</button>
+                    </div>
+                </div>
+                <button class="btn btn-primary btn-full" id="modal-add-to-cart">
+                    Add to Cart
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 01-8 0"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div class="modal-overlay" id="checkout-modal-overlay"></div>
+    <div class="checkout-modal" id="checkout-modal">
+        <button class="modal-close" id="checkout-close">&times;</button>
+        <h2 class="checkout-title">Checkout</h2>
+        <form id="checkout-form">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="checkout-name">Full Name</label>
+                    <input type="text" id="checkout-name" required placeholder="John Doe">
+                </div>
+                <div class="form-group">
+                    <label for="checkout-email">Email</label>
+                    <input type="email" id="checkout-email" required placeholder="john@example.com">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="checkout-phone">Phone</label>
+                    <input type="tel" id="checkout-phone" placeholder="+1 (555) 000-0000">
+                </div>
+                <div class="form-group">
+                    <label for="checkout-zip">ZIP Code</label>
+                    <input type="text" id="checkout-zip" placeholder="10001">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="checkout-address">Address</label>
+                <input type="text" id="checkout-address" placeholder="123 Main Street">
+            </div>
+            <div class="form-group">
+                <label for="checkout-city">City</label>
+                <input type="text" id="checkout-city" placeholder="New York">
+            </div>
+            <div class="checkout-summary" id="checkout-summary"></div>
+            <button type="submit" class="btn btn-primary btn-full" id="place-order-btn">
+                Place Order
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+            </button>
+        </form>
+    </div>
+
+    <!-- Toast notification -->
+    <div class="toast" id="toast">
+        <div class="toast-icon" id="toast-icon">✓</div>
+        <div class="toast-message" id="toast-message"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SoleCraft Admin | Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a25;
+            --text-primary: #f0f0f5;
+            --text-secondary: #9494a8;
+            --accent: #f59e0b;
+            --border: rgba(255, 255, 255, 0.08);
+            --radius: 12px;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 260px;
+            background: var(--bg-secondary);
+            border-right: 1px solid var(--border);
+            padding: 32px 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .logo {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            color: var(--text-primary);
+        }
+        .logo span { color: var(--accent); }
+
+        .nav-menu { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+        .nav-item {
+            padding: 12px 16px;
+            border-radius: var(--radius);
+            cursor: pointer;
+            transition: 0.3s;
+            color: var(--text-secondary);
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .nav-item:hover, .nav-item.active {
+            background: rgba(245, 158, 11, 0.1);
+            color: var(--accent);
+        }
+
+        /* Main Content */
+        .main { flex: 1; padding: 48px; overflow-y: auto; }
+        .header { margin-bottom: 40px; display: flex; justify-content: space-between; align-items: center; }
+        .header h1 { font-family: 'Outfit', sans-serif; font-size: 2rem; font-weight: 700; }
+
+        .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-bottom: 40px; }
+        .stat-card {
+            background: var(--bg-card);
+            padding: 24px;
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+        }
+        .stat-label { font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 8px; }
+        .stat-value { font-size: 1.8rem; font-weight: 700; font-family: 'Outfit', sans-serif; }
+
+        .table-container {
+            background: var(--bg-card);
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+            overflow: hidden;
+        }
+        table { width: 100%; border-collapse: collapse; }
+        th { text-align: left; padding: 16px 24px; background: rgba(255,255,255,0.03); font-size: 0.85rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 1px; }
+        td { padding: 16px 24px; border-top: 1px solid var(--border); font-size: 0.9rem; }
+        tr:hover { background: rgba(255,255,255,0.02); }
+
+        .status-badge {
+            padding: 4px 12px;
+            border-radius: 100px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        .status-pending { background: rgba(245, 158, 11, 0.1); color: #f59e0b; }
+        .status-completed { background: rgba(16, 185, 129, 0.1); color: #10b981; }
+
+        /* Sections */
+        .dashboard-section { display: none; }
+        .dashboard-section.active { display: block; animation: fadeIn 0.4s ease; }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        .back-link {
+            display: inline-block; margin-bottom: 24px;
+            color: var(--text-secondary); text-decoration: none;
+            font-size: 0.9rem; display: flex; align-items: center; gap: 8px;
+        }
+        .back-link:hover { color: var(--text-primary); }
+
+        .empty-state { text-align: center; padding: 80px 0; color: var(--text-secondary); }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="logo">SOLE<span>CRAFT</span></div>
+        <ul class="nav-menu">
+            <li class="nav-item active" data-target="orders">Orders</li>
+            <li class="nav-item" data-target="products">Products</li>
+            <li class="nav-item" data-target="messages">Messages</li>
+            <li class="nav-item" data-target="newsletter">Newsletter</li>
+        </ul>
+        <div style="margin-top:auto">
+            <a href="/" class="back-link">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Back to Site
+            </a>
+        </div>
+    </div>
+
+    <div class="main">
+        <header class="header">
+            <h1 id="section-title">Orders</h1>
+            <div id="last-updated" style="font-size:0.8rem; color:var(--text-secondary)"></div>
+        </header>
+
+        <section id="orders" class="dashboard-section active">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-label">Total Orders</div>
+                    <div class="stat-value" id="stat-total-orders">-</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Revenue</div>
+                    <div class="stat-value" id="stat-revenue">-</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Pending</div>
+                    <div class="stat-value" id="stat-pending">-</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Avg. Order Value</div>
+                    <div class="stat-value" id="stat-avg-value">-</div>
+                </div>
+            </div>
+            <div class="table-container">
+                <table id="orders-table">
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Customer</th>
+                            <th>Items</th>
+                            <th>Total</th>
+                            <th>Status</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody id="orders-body"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="products" class="dashboard-section">
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Product</th>
+                            <th>Category</th>
+                            <th>Price</th>
+                            <th>Stock</th>
+                        </tr>
+                    </thead>
+                    <tbody id="products-body"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="messages" class="dashboard-section">
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Subject</th>
+                            <th>Message</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody id="messages-body"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="newsletter" class="dashboard-section">
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Email</th>
+                            <th>Subscribed At</th>
+                        </tr>
+                    </thead>
+                    <tbody id="newsletter-body"></tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+</html>
